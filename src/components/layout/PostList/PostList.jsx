@@ -1,7 +1,11 @@
-import React from "react";
+import PostCard from "../../UI/PostCard/PostCard";
 
 const PostList = () => {
-	return <div>PostList</div>;
+	return (
+		<div className="grid grid-cols-4 gap-x-8">
+			<PostCard />
+		</div>
+	);
 };
 
 export default PostList;
