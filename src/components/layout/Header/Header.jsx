@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom";
-import {
-	RiArrowDownSFill,
-	RiSearchLine,
-	RiAccountCircleLine,
-	RiToggleLine,
-} from "react-icons/ri";
+import { RiArrowDownSFill, RiSearchLine, RiToggleLine } from "react-icons/ri";
 import Heading from "../../UI/Heading/Heading";
+import { useState } from "react";
 
 const Header = () => {
+	const [isLogin, setIsLogin] = useState(false);
 	return (
 		<header className="w-full px-28 grid grid-cols-12 py-4 bg-[#E8F3F3] text-[#333333] shadow">
 			<div className="col-span-4 flex items-center gap-8 font-semibold">
@@ -29,9 +26,11 @@ const Header = () => {
 				<Link to="/">
 					<RiSearchLine />
 				</Link>
-				<Link to="/">
-					<RiAccountCircleLine />
-				</Link>
+				{isLogin ? (
+					<Link to="/login">Login</Link>
+				) : (
+					<Link to="/reg">Register</Link>
+				)}
 				<Link to="/">
 					<RiToggleLine />
 				</Link>
